@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox minHeight="625.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.csfd.controller.user.UsersController">
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="New" />
+                        <MenuItem mnemonicParsing="false" text="Quit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Help, I need somebody help!" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <SplitPane focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+            <items>
+                <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                    <content>
+                        <AnchorPane id="Content" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-Infinity" prefHeight="517.0" prefWidth="943.0">
+                            <children>
+                                <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="147.0" style="&#10;" text="Users" textAlignment="CENTER" wrapText="false">
+                                    <font>
+                                        <Font size="18.0" fx:id="x1" />
+                                    </font>
+                                    <textFill>
+                                        <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
+                                    </textFill></Label>
+                                <TableView fx:id="systemUsersTableView" layoutY="67.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="400.0" prefWidth="948.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-356.0">
+                                    <columns>
+                                        <TableColumn fx:id="usersId" minWidth="75.0" prefWidth="107.0" text="id" />
+                                        <TableColumn fx:id="usersName" minWidth="75.0" prefWidth="223.0" text="product" />
+                                        <TableColumn fx:id="usersEmail" minWidth="46.0" prefWidth="230.0" text="email" />
+                                        <TableColumn fx:id="usersAccountName" minWidth="47.0" prefWidth="173.0" text="account product" />
+                                        <TableColumn fx:id="usersAccountPassword" minWidth="47.0" prefWidth="218.0" text="account password" />
+                                    </columns>
+                                </TableView>
+                                <Button fx:id="addUserButton" layoutX="25.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleAddUserButton" text="Add user" />
+                                <Button fx:id="refreshButton" layoutX="125.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleRefreshButton" text="Refresh" />
+                                <Button fx:id="personsButton" layoutX="630.0" layoutY="490.0" mnemonicParsing="false" onAction="#handlePersonsButton" prefHeight="25.0" prefWidth="145.0" text="&lt;&lt; Persons table" />
+                                <Button fx:id="titlesButton" layoutX="785.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleTitlesButton" prefHeight="25.0" prefWidth="145.0" text="Titles table &gt;&gt;" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </ScrollPane>
+            </items>
+        </SplitPane>
+        <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+            <children>
+                <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+            </children>
+            <padding>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+            </padding>
+        </HBox>
+    </children>
+</VBox>

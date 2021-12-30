@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="525.0" prefWidth="600.0" style="-fx-background-image: url(https://www.sketchappsources.com/resources/source-image/geometry-background.png)" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.csfd.controller.user.UserCreateController">
+    <children>
+        <GridPane layoutX="22.0" layoutY="22.0" prefHeight="425.0" prefWidth="549.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="269.39996337890625" minWidth="10.0" prefWidth="100.5999755859375" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="449.4000244140625" minWidth="10.0" prefWidth="449.4000244140625" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="user id">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <Label text="username" GridPane.rowIndex="1">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <Label text="email" GridPane.rowIndex="2">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <Label text="account product" GridPane.rowIndex="3">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <Label text="password" GridPane.rowIndex="4">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="newUserId" promptText="detail new user id" GridPane.columnIndex="1" />
+                <TextField fx:id="newUserName" promptText="detail new user username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="newUserEmail" promptText="detail new user email" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="newUserAccountName" promptText="detail new user account product" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="newUserPassword" promptText="detail new user account password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            </children>
+        </GridPane>
+        <Button fx:id="newUserCreateUser" layoutX="500.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleCreateNewUser" text="create" />
+    </children>
+</AnchorPane>
