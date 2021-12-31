@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox minHeight="625.0" prefWidth="950.0"  xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.eshop.controller.PersonsController">
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="New" />
+                        <MenuItem mnemonicParsing="false" text="Quit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Help, I need somebody help!" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <SplitPane focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+            <items>
+                <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                    <content>
+                        <AnchorPane id="Content" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-Infinity" prefHeight="517.0" prefWidth="943.0">
+                            <children>
+                                <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="147.0" style="&#10;" text="Persons" textAlignment="CENTER" wrapText="false">
+                                    <font>
+                                        <Font size="18.0" fx:id="x1" />
+                                    </font>
+                                    <textFill>
+                                        <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
+                                    </textFill></Label>
+                                <TableView fx:id="systemPersonsTableView" layoutY="67.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="400.0" prefWidth="948.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-356.0">
+                                    <columns>
+                                        <TableColumn fx:id="personsId" minWidth="75.0" prefWidth="116.0" text="id" />
+                                        <TableColumn fx:id="personsGivenName" minWidth="75.0" prefWidth="200.0" text="given product" />
+                                        <TableColumn fx:id="personsFamilyName" minWidth="47.0" prefWidth="200.0" text="family product" />
+                                        <TableColumn fx:id="personsBirthday" minWidth="34.0" prefWidth="171.0" text="birthday" />
+                                        <TableColumn fx:id="personsCity" minWidth="75.0" prefWidth="267.0" text="accountName" />
+                                    </columns>
+                                </TableView>
+                                <Button fx:id="addPersonButton" layoutX="25.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleAddPersonButton" text="Add person" />
+                                <Button fx:id="refreshButton" layoutX="125.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleRefreshButton" text="Refresh" />
+                                <Button fx:id="dummyButton" layoutX="625.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleDummyButton" prefHeight="25.0" prefWidth="145.0" text="&lt;&lt; Dummy table" />
+                                <Button fx:id="usersButton" layoutX="785.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleUsersButton" prefHeight="25.0" prefWidth="145.0" text="Users table &gt;&gt;" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </ScrollPane>
+            </items>
+        </SplitPane>
+        <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+            <children>
+                <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+            </children>
+            <padding>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+            </padding>
+        </HBox>
+    </children>
+</VBox>
