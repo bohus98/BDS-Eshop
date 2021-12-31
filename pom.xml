@@ -3,15 +3,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.but.feec.csfd</groupId>
-    <artifactId>bds-csfd</artifactId>
+    <groupId>org.but.feec.eshop</groupId>
+    <artifactId>bds-eshop</artifactId>
     <version>1.0.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
-        <javafx.version>16</javafx.version>
+        <javafx.version>17.0.0.1</javafx.version>
     </properties>
 
     <dependencies>
@@ -19,7 +19,7 @@
         <dependency>
             <groupId>org.controlsfx</groupId>
             <artifactId>controlsfx</artifactId>
-            <version>11.1.0</version>
+            <version>11.1.1</version>
         </dependency>
         <dependency>
             <groupId>de.jensd</groupId>
@@ -31,24 +31,24 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>${javafx.version}</version>
+            <version>17.0.0.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>${javafx.version}</version>
+            <version>17.0.0.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-base -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-base</artifactId>
-            <version>${javafx.version}</version>
+            <version>17.0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
-            <version>${javafx.version}</version>
+            <version>17.0.0.1</version>
             <classifier>win</classifier>
         </dependency>
         <dependency>
@@ -61,7 +61,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.24</version>
+            <version>42.3.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
         <dependency>
@@ -79,12 +79,12 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.30</version>
+            <version>1.7.32</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.6</version>
+            <version>1.2.10</version>
         </dependency>
     </dependencies>
 

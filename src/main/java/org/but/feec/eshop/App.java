@@ -20,7 +20,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            loader = new FXMLLoader(getClass().getResource("App.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/org.but.feec.eshop/App.fxml"));
             mainStage = loader.load();
 
             primaryStage.setTitle("BDS Eshop");
