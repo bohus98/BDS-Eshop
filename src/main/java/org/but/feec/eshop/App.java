@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.but.feec.eshop.exception.ExceptionHandler;
 
 public class App extends Application {
 
@@ -22,7 +23,7 @@ public class App extends Application {
             loader = new FXMLLoader(getClass().getResource("App.fxml"));
             mainStage = loader.load();
 
-            primaryStage.setTitle("BDS CSFD");
+            primaryStage.setTitle("BDS Eshop");
             Scene scene = new Scene(mainStage);
             setUserAgentStylesheet(STYLESHEET_MODENA);
             String myStyle = getClass().getResource("css/myStyle.css").toExternalForm();

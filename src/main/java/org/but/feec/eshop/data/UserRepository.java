@@ -1,9 +1,6 @@
 package org.but.feec.eshop.data;
 
-import org.but.feec.eshop.api.user.UserAuthView;
-import org.but.feec.eshop.api.user.UserBasicView;
-import org.but.feec.eshop.api.user.UserCreateView;
-import org.but.feec.eshop.api.user.UserDetailView;
+import org.but.feec.eshop.api.user.*;
 import org.but.feec.eshop.config.DataSourceConfig;
 import org.but.feec.eshop.exception.DataAccessException;
 
@@ -35,7 +32,7 @@ public class UserRepository {
     public UserDetailView findUserDetailedView(Long userId) {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT id_user, first_name, surname, nick, email, city, street_name, house_number, user_created" +
+                     "SELECT user_id, user_name, email, account_name, account_password" +
                              " FROM public.user u" +
                              " LEFT JOIN address a ON u.id_address = a.id_address" +
                              " WHERE u.id_user = ? ORDER BY u.id_user")
@@ -60,7 +57,7 @@ public class UserRepository {
     public List<UserBasicView> getUsersBasicView() {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT id_user, email, first_name, surname, nick, city, u.id_address" +
+                     "SELECT user_id, user_name, email, account_name, account_password" +
                              " FROM public.user u" +
                              " LEFT JOIN address a ON u.id_address = a.id_address ORDER BY u.id_user");
              ResultSet resultSet = preparedStatement.executeQuery();) {
@@ -75,18 +72,18 @@ public class UserRepository {
     }
 
     public void createUser(UserCreateView userCreateView) {
-        if(userCreateView.getAddress() != null){
-            String insertUserSQL = "INSERT INTO public.user (id_user, first_name, surname, nick, email, password, user_created, id_address) VALUES (DEFAULT,?,?,?,?,?, CURRENT_TIMESTAMP, ?)";
+        if(userCreateView.getAccountName() != null){
+            String insertUserSQL = "INSERT INTO public.user (user_id, user_name, email, account_name, account_password) VALUES (DEFAULT,?,?,?,?)";
             try (Connection connection = DataSourceConfig.getConnection();
                  // would be beneficial if I will return the created entity back
                  PreparedStatement preparedStatement = connection.prepareStatement(insertUserSQL, Statement.RETURN_GENERATED_KEYS)) {
                 // set prepared statement variables
-                preparedStatement.setString(1, userCreateView.getFirstName());
-                preparedStatement.setString(2, userCreateView.getSurname());
-                preparedStatement.setString(3, userCreateView.getNickname());
-                preparedStatement.setString(4, userCreateView.getEmail());
-                preparedStatement.setString(5, String.valueOf(userCreateView.getPwd()));
-                preparedStatement.setLong(6, userCreateView.getAddress());
+                preparedStatement.setString(1, userCreateView.getUserName());
+                preparedStatement.setString(2, userCreateView.getAccountName());
+
+                preparedStatement.setString(3, userCreateView.getEmail());
+                preparedStatement.setString(4, String.valueOf(userCreateView.getPwd()));
+
 
                 int affectedRows = preparedStatement.executeUpdate();
 
@@ -98,16 +95,15 @@ public class UserRepository {
             }
         }
         else{
-            String insertUserSQL = "INSERT INTO public.user (id_user, first_name, surname, nick, email, password, user_created, id_address) VALUES (DEFAULT,?,?,?,?,?, CURRENT_TIMESTAMP, NULL)";
+            String insertUserSQL = "INSERT INTO public.user (user_id, user_name, email, account_name, account_password) VALUES (DEFAULT,?,?,?,?)";
             try (Connection connection = DataSourceConfig.getConnection();
                  // would be beneficial if I will return the created entity back
                  PreparedStatement preparedStatement = connection.prepareStatement(insertUserSQL, Statement.RETURN_GENERATED_KEYS)) {
                 // set prepared statement variables
-                preparedStatement.setString(1, userCreateView.getFirstName());
-                preparedStatement.setString(2, userCreateView.getSurname());
-                preparedStatement.setString(3, userCreateView.getNickname());
-                preparedStatement.setString(4, userCreateView.getEmail());
-                preparedStatement.setString(5, String.valueOf(userCreateView.getPwd()));
+                preparedStatement.setString(1, userCreateView.getUserName());
+                preparedStatement.setString(2, userCreateView.getAccountName());
+                preparedStatement.setString(3, userCreateView.getEmail());
+                preparedStatement.setString(4, String.valueOf(userCreateView.getPwd()));
 
                 int affectedRows = preparedStatement.executeUpdate();
 
@@ -159,19 +155,18 @@ public class UserRepository {
     }
 
     public void editUser(UserEditView userEditView) {
-        if(userEditView.getAddress() != null){
-            String insertUserSQL = "UPDATE public.user u SET email = ?, first_name = ?, nick = ?, surname = ?, id_address = ? WHERE u.id_user = ?";
+        if(userEditView.getAccountName() != null){
+            String insertUserSQL = "UPDATE public.user u SET email = ?, user_name = ?, account_name = ?, account_password = ? WHERE u.id_user = ?";
             String checkIfExists = "SELECT email FROM public.user u WHERE u.id_user = ? ORDER BY u.id_user";
             try (Connection connection = DataSourceConfig.getConnection();
                  // would be beneficial if I will return the created entity back
                  PreparedStatement preparedStatement = connection.prepareStatement(insertUserSQL, Statement.RETURN_GENERATED_KEYS)) {
                 // set prepared statement variables
                 preparedStatement.setString(1, userEditView.getEmail());
-                preparedStatement.setString(2, userEditView.getFirstName());
-                preparedStatement.setString(3, userEditView.getNickname());
-                preparedStatement.setString(4, userEditView.getSurname());
-                preparedStatement.setLong(5, userEditView.getAddress());
-                preparedStatement.setLong(6, userEditView.getId());
+                preparedStatement.setString(2, userEditView.getUserName());
+                preparedStatement.setString(3, userEditView.getAccountName());
+                preparedStatement.setString(4, userEditView.getAccountPassword());
+                preparedStatement.setLong(5, userEditView.getId());
 
                 try {
                     // TODO set connection autocommit to false
@@ -202,16 +197,16 @@ public class UserRepository {
             }
         }
         else{
-            String insertUserSQL = "UPDATE public.user u SET email = ?, first_name = ?, nick = ?, surname = ?, id_address = NULL WHERE u.id_user = ?";
-            String checkIfExists = "SELECT email FROM public.user u WHERE u.id_user = ? ORDER BY u.id_user";
+            String insertUserSQL = "UPDATE public.user u SET email = ?, user_name = ?, account_name = ?, account_password = ? WHERE u.user_id = ?";
+            String checkIfExists = "SELECT email FROM public.user u WHERE u.user_id = ? ORDER BY u.user_id";
             try (Connection connection = DataSourceConfig.getConnection();
                  // would be beneficial if I will return the created entity back
                  PreparedStatement preparedStatement = connection.prepareStatement(insertUserSQL, Statement.RETURN_GENERATED_KEYS)) {
                 // set prepared statement variables
                 preparedStatement.setString(1, userEditView.getEmail());
-                preparedStatement.setString(2, userEditView.getFirstName());
-                preparedStatement.setString(3, userEditView.getNickname());
-                preparedStatement.setString(4, userEditView.getSurname());
+                preparedStatement.setString(2, userEditView.getUserName());
+                preparedStatement.setString(3, userEditView.getAccountName());
+                preparedStatement.setString(4, userEditView.getAccountPassword());
                 preparedStatement.setLong(5, userEditView.getId());
 
                 try {
@@ -259,27 +254,21 @@ public class UserRepository {
 
     private UserBasicView mapToUserBasicView(ResultSet rs) throws SQLException {
         UserBasicView userBasicView = new UserBasicView();
-        userBasicView.setId(rs.getLong("id_user"));
+        userBasicView.setId(rs.getLong("user_id"));
+        userBasicView.setUserName(rs.getString("user_name"));
         userBasicView.setEmail(rs.getString("email"));
-        userBasicView.setGivenName(rs.getString("first_name"));
-        userBasicView.setFamilyName(rs.getString("surname"));
-        userBasicView.setNickname(rs.getString("nick"));
-        userBasicView.setAddress(rs.getString("id_address"));
-        userBasicView.setCity(rs.getString("city"));
+        userBasicView.setAccountName(rs.getString("account_name"));
+        userBasicView.setAccountPassword(rs.getString("account_password"));
         return userBasicView;
     }
 
     private UserDetailView mapToUserDetailView(ResultSet rs) throws SQLException {
         UserDetailView userDetailView = new UserDetailView();
         userDetailView.setId(rs.getLong("id_user"));
-        userDetailView.setGivenName(rs.getString("first_name"));
-        userDetailView.setFamilyName(rs.getString("surname"));
-        userDetailView.setNickname(rs.getString("nick"));
+        userDetailView.setUserName(rs.getString("user_name"));
+        userDetailView.setAccountName(rs.getString("account_name"));
         userDetailView.setEmail(rs.getString("email"));
-        userDetailView.setCity(rs.getString("city"));
         userDetailView.setStreet(rs.getString("street_name"));
-        userDetailView.sethouseNumber(rs.getString("house_number"));
-        userDetailView.setCreated(rs.getString("user_created"));
         return userDetailView;
     }
 

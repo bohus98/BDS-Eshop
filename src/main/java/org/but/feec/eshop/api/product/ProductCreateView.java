@@ -33,11 +33,11 @@ public class ProductCreateView {
         this.currencyid = currencyid;
     }
 
-    public java.sql.Date getShopid() {
+    public Long getShopid() {
         return shopid;
     }
 
-    public void setShopid(java.sql.Date shopid) {
+    public void setShopid(Long shopid) {
         this.shopid = shopid;
     }
 

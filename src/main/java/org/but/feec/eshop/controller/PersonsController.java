@@ -13,6 +13,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.but.feec.eshop.App;
+import org.but.feec.eshop.api.PersonBasicView;
+import org.but.feec.eshop.api.PersonDetailView;
+import org.but.feec.eshop.data.PersonRepository;
+import org.but.feec.eshop.exception.ExceptionHandler;
+import org.but.feec.eshop.service.PersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="453.0" prefWidth="600.0" style="-fx-background-image: url(https://www.sketchappsources.com/resources/source-image/geometry-background.png)" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="453.0" prefWidth="600.0" style="-fx-background-image: url(https://www.sketchappsources.com/resources/source-image/geometry-background.png)" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.eshop.controller.PersonsEditController">
     <children>
         <GridPane layoutX="22.0" layoutY="22.0" prefHeight="378.0" prefWidth="549.0">
             <columnConstraints>

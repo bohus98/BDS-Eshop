@@ -1,6 +1,8 @@
 package org.but.feec.eshop.data;
 
 import org.but.feec.eshop.api.dummy.DummyBasicView;
+import org.but.feec.eshop.config.DataSourceConfig;
+import org.but.feec.eshop.exception.DataAccessException;
 
 import java.sql.*;
 import java.util.ArrayList;

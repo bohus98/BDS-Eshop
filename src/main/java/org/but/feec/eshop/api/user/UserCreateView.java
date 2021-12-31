@@ -43,7 +43,7 @@ public class UserCreateView {
     }
 
 
-    }
+
 
     @Override
     public String toString() {
