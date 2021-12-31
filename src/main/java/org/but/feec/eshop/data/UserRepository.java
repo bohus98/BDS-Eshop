@@ -268,7 +268,7 @@ public class UserRepository {
         userDetailView.setUserName(rs.getString("user_name"));
         userDetailView.setAccountName(rs.getString("account_name"));
         userDetailView.setEmail(rs.getString("email"));
-        userDetailView.setStreet(rs.getString("street_name"));
+        userDetailView.setAccountPassword(rs.getString("street_name"));
         return userDetailView;
     }
 

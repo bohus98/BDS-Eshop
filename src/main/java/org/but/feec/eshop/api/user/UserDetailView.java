@@ -11,6 +11,7 @@ public class UserDetailView {
     private StringProperty email = new SimpleStringProperty();
     private StringProperty accountName = new SimpleStringProperty();
     private StringProperty accountPassword = new SimpleStringProperty();
+    private StringProperty created = new SimpleStringProperty();
 
 
     public Long getId() {
@@ -45,12 +46,12 @@ public class UserDetailView {
         this.accountNameProperty().setValue(accountName);
     }
 
-    public String getStreet() {
-        return streetProperty().get();
+    public String getAccountPassword() {
+        return AccountPasswordProperty().get();
     }
 
-    public void setStreet(String street) {
-        this.streetProperty().setValue(street);
+    public void setAccountPassword(String street) {
+        this.AccountPasswordProperty().setValue(street);
     }
 
     public LongProperty idProperty() {
@@ -69,10 +70,18 @@ public class UserDetailView {
         return accountName;
     }
 
-    public StringProperty streetProperty() {
+    public StringProperty AccountPasswordProperty() {
         return accountPassword;
     }
 
+
+    public String getCreated() { return createdProperty().get(); }
+    public void setCreated(String created) {
+        this.createdProperty().setValue(created);
+    }
+    public StringProperty createdProperty() {
+        return created;
+    }
 
 
 }

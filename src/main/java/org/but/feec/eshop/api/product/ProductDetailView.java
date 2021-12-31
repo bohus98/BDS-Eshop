@@ -1,69 +1,138 @@
 package org.but.feec.eshop.api.product;
 
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class ProductDetailView {
-    private Long id;
-    private String product;
-    private Long hasprice;
-    private Long price;
-    private Long currencyid;
-    private Long shopid;
-    private Long categoryid;
-    private String detail;
+    private LongProperty id = new SimpleLongProperty();
+    private StringProperty product = new SimpleStringProperty();
+    private  LongProperty hasprice = new SimpleLongProperty();
+    private  LongProperty price = new SimpleLongProperty();
+    private  LongProperty currencyid = new SimpleLongProperty();
+    private  LongProperty shopid = new SimpleLongProperty();
+    private  LongProperty categoryid = new SimpleLongProperty();
+    private StringProperty detail = new SimpleStringProperty() ;
 
-    public Long getId() {return id;}
+    public LongProperty idProperty() {
+        return id;
+    }
 
-    public void setId(Long id) {this.id = id;}
+    public void setId(long id) {
+        this.id.set(id);
+    }
 
-    public String getProduct() {
+    public StringProperty productProperty() {
         return product;
     }
 
     public void setProduct(String product) {
-        this.product = product;
+        this.product.set(product);
     }
 
-    public Long getHasprice() {
+    public LongProperty haspriceProperty() {
         return hasprice;
     }
 
-    public void setHasprice(Long hasprice) {
-        this.hasprice = hasprice;
+    public void setHasprice(long hasprice) {
+        this.hasprice.set(hasprice);
     }
 
-    public Long getCurrencyid() {
+    public LongProperty priceProperty() {
+        return price;
+    }
+
+    public void setPrice(long price) {
+        this.price.set(price);
+    }
+
+    public LongProperty currencyidProperty() {
         return currencyid;
     }
 
-    public void setCurrencyid(Long currencyid) {
-        this.currencyid = currencyid;
+    public void setCurrencyid(long currencyid) {
+        this.currencyid.set(currencyid);
     }
 
-    public Long getShopid() {
+    public LongProperty shopidProperty() {
         return shopid;
     }
 
-    public void setShopid(Long shopid) {
-        this.shopid = shopid;
+    public void setShopid(long shopid) {
+        this.shopid.set(shopid);
     }
 
-    public Long getCategoryid() {
+    public LongProperty categoryidProperty() {
         return categoryid;
     }
 
-    public void setCategoryid(Long categoryid) {
-        this.categoryid = categoryid;
+    public void setCategoryid(long categoryid) {
+        this.categoryid.set(categoryid);
     }
 
-    public String getDetail() {
+    public StringProperty detailProperty() {
         return detail;
     }
 
     public void setDetail(String detail) {
+        this.detail.set(detail);
+    }
+
+    public LongProperty getId() {return id;}
+
+    public void setId(LongProperty id) {this.id = id;}
+
+    public StringProperty getProduct() {
+        return product;
+    }
+
+    public void setProduct(StringProperty product) {
+        this.product = product;
+    }
+
+    public LongProperty getHasprice() {
+        return hasprice;
+    }
+
+    public void setHasprice(LongProperty hasprice) {
+        this.hasprice = hasprice;
+    }
+
+    public LongProperty getCurrencyid() {
+        return currencyid;
+    }
+
+    public void setCurrencyid(LongProperty currencyid) {
+        this.currencyid = currencyid;
+    }
+
+    public LongProperty getShopid() {
+        return shopid;
+    }
+
+    public void setShopid(LongProperty shopid) {
+        this.shopid = shopid;
+    }
+
+    public LongProperty getCategoryid() {
+        return categoryid;
+    }
+
+    public void setCategoryid(LongProperty categoryid) {
+        this.categoryid = categoryid;
+    }
+
+    public StringProperty getDetail() {
+        return detail;
+    }
+
+    public void setDetail(StringProperty detail) {
         this.detail = detail;
     }
 
-    public Long getPrice() {return price;}
+    public LongProperty getPrice() {return price;}
 
-    public void setPrice(Long price) {this.price = price;}
+    public void setPrice(LongProperty price) {this.price = price;}
 
 }
